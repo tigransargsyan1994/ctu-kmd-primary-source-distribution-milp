@@ -77,10 +77,10 @@ The model is governed by the following constraint groups:
 
 3. **Linking constraint**
 
-   $$
-   x_{ij} \le y_i
-   \qquad \forall i \in I,\; j \in J
-   $$
+ $$
+  x_{ij} \le y_i
+  \qquad \forall i \in I,\; j \in J
+  $$
 
    Ensures that customers can only be assigned to warehouses that are opened.
 
@@ -91,10 +91,10 @@ The model is governed by the following constraint groups:
 
 ## Repository Structure
 
-- `Semestralka_KMD_Primarni_zdroj_PuLP.ipynb`  
+- `semestral_project_primary_source_distribution_pulp.ipynb`  
   → Full implementation (data, model formulation, solution, interpretation)
 
-- `diagram.jpg`  
+- `output.jpg`  
   → Visualization of the optimal distribution structure
 
 ---
