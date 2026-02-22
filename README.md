@@ -47,38 +47,42 @@ and solved using the Python library **PuLP**.
 
 ### Decision Variables
 
-- **Assignment variable**
+The MILP uses the following binary variables:
 
-  $$
-  x_{ij} \in \{0,1\}
-  $$
+$$
+x_{ij} \in \{0,1\}
+\qquad \forall i \in I,\; j \in J
+$$
 
-  Binary variable equal to 1 if customer \( j \) is served by warehouse \( i \), and 0 otherwise.
+Indicates whether customer \( j \) is assigned to warehouse \( i \).
 
-- **Opening variable**
+$$
+y_i \in \{0,1\}
+\qquad \forall i \in I
+$$
 
-  $$
-  y_i \in \{0,1\}
-  $$
-
-  Binary variable equal to 1 if warehouse \( i \) is opened, and 0 otherwise.
+Indicates whether warehouse \( i \) is opened.
 
 ---
 
-### Key Constraints
+### Core Constraints
 
-- **Warehouse capacity constraints**
+The model is governed by the following constraint groups:
 
-- **Unique customer assignment**  
-  Each customer is assigned to exactly one warehouse.
+1. **Warehouse capacity constraints**  
+   The total demand allocated to each warehouse cannot exceed its capacity.
 
-- **Linking constraint**
+2. **Unique customer assignment**  
+   Each customer must be assigned to exactly one warehouse.
 
-  $$
-  x_{ij} \le y_i
-  $$
+3. **Linking constraint**
 
-  A customer can only be assigned to warehouse \( i \) if that warehouse is opened.
+   $$
+   x_{ij} \le y_i
+   \qquad \forall i \in I,\; j \in J
+   $$
+
+   Ensures that customers can only be assigned to warehouses that are opened.
 
 - **Special separation rule**  
   Customers 1–3 cannot be supplied from the same warehouse.
