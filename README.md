@@ -47,24 +47,41 @@ and solved using the Python library **PuLP**.
 
 ### Decision Variables
 
-- \( x_{ij} \in \{0,1\} \)  
-  Binary assignment variable equal to 1 if customer \( j \) is served by warehouse \( i \), and 0 otherwise.
+- **Assignment variable**
 
-- \( y_i \in \{0,1\} \)  
-  Binary opening variable equal to 1 if warehouse \( i \) is selected (opened), and 0 otherwise.
+  $$
+  x_{ij} \in \{0,1\}
+  $$
+
+  Binary variable equal to 1 if customer \( j \) is served by warehouse \( i \), and 0 otherwise.
+
+- **Opening variable**
+
+  $$
+  y_i \in \{0,1\}
+  $$
+
+  Binary variable equal to 1 if warehouse \( i \) is opened, and 0 otherwise.
 
 ---
 
 ### Key Constraints
 
 - **Warehouse capacity constraints**
-- **Each customer assigned exactly once**
-- **Linking constraint:**  
-\[
-x_{ij} \le y_i
-\]
-- **Special separation rule:**  
-  Customers 1–3 cannot be supplied from the same warehouse
+
+- **Unique customer assignment**  
+  Each customer is assigned to exactly one warehouse.
+
+- **Linking constraint**
+
+  $$
+  x_{ij} \le y_i
+  $$
+
+  A customer can only be assigned to warehouse \( i \) if that warehouse is opened.
+
+- **Special separation rule**  
+  Customers 1–3 cannot be supplied from the same warehouse.
 
 ---
 
