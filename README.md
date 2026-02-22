@@ -10,7 +10,7 @@ The project was developed within the course framework and implements a complete
 ---
 
 ## Problem Description  
-*(Lecture 10 — Distribution System with a Primary Source)*
+*(Distribution System with a Primary Source)*
 
 We consider a two-level distribution network:
 
@@ -48,10 +48,10 @@ and solved using the Python library **PuLP**.
 ### Decision Variables
 
 - \( x_{ij} \in \{0,1\} \)  
-  = 1 if customer \( j \) is assigned to warehouse \( i \)
+  Binary assignment variable equal to 1 if customer \( j \) is served by warehouse \( i \), and 0 otherwise.
 
 - \( y_i \in \{0,1\} \)  
-  = 1 if warehouse \( i \) is opened
+  Binary opening variable equal to 1 if warehouse \( i \) is selected (opened), and 0 otherwise.
 
 ---
 
@@ -60,7 +60,9 @@ and solved using the Python library **PuLP**.
 - **Warehouse capacity constraints**
 - **Each customer assigned exactly once**
 - **Linking constraint:**  
-  \( x_{ij} \le y_i \)
+\[
+x_{ij} \le y_i
+\]
 - **Special separation rule:**  
   Customers 1–3 cannot be supplied from the same warehouse
 
